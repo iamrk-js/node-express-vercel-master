@@ -1,9 +1,12 @@
-require('dotenv').config();
-const express = require('express')
-const mongoose = require('mongoose')
+// require('dotenv').config();
+// const express = require('express')
+import express from 'express';
+import mongoose from 'mongoose';
+// const mongoose = require('mongoose')
 const Post = require('./models/postSchema')
 const app = express()
 const port = 9001;
+// import {getAllCourses} from './routes/get-courses.route';
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
@@ -39,8 +42,10 @@ app.post('/posts', async(req, res) => {
     }
 })
 
+// app.route('/api/courses').get(getAllCourses);
+app.get('/api/courses',  async(req, res) => {
 
-
+})
 mongoose.set("strictQuery", false);
 mongoose.connect('mongodb+srv://nravikiran5:kkjdkawk@cluster0.dw93cvc.mongodb.net/?retryWrites=true&w=majority')
   .then(res => {
